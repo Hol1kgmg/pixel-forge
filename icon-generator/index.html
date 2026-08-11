@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Generator — macOS風アイコン生成</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Left: preview -->
+  <section class="card stage empty" id="stage">
+    <header class="title">
+      <div class="eyebrow">Preview</div>
+      <h1>Icon Generator</h1>
+      <p>画像をmacOS風のsquircle（超楕円）でクリップし、影を付けて透過PNGとして書き出します。</p>
+    </header>
+
+    <div class="checker">
+      <canvas id="previewCanvas" width="1024" height="1024"></canvas>
+    </div>
+
+    <label class="drop" id="drop">
+      <input type="file" id="fileInput" accept="image/*">
+      <span id="dropLabel"><b>クリックして画像を選択</b> またはドラッグ&ドロップ</span>
+    </label>
+    <div class="filename" id="filename"></div>
+    <button class="btn btn-secondary imageResetBtn" id="imageResetBtn">画像をリセット</button>
+  </section>
+
+  <!-- Right: controls -->
+  <section class="card">
+    <header class="title">
+      <div class="eyebrow">Adjust</div>
+      <h1>調整</h1>
+    </header>
+
+    <div class="field">
+      <div class="field-label"><span>丸みの強さ（squircle）</span><span class="val" id="roundnessVal">4.5</span></div>
+      <input type="range" id="roundness" min="2" max="10" step="0.1" value="4.5">
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>余白（パディング）</span><span class="val" id="paddingVal">6%</span></div>
+      <input type="range" id="padding" min="0" max="20" step="1" value="6">
+    </div>
+
+    <div class="field">
+      <div class="field-label">
+        <span><label for="bgFillEnabled"><input type="checkbox" id="bgFillEnabled"> 背景色で塗りつぶす</label></span>
+        <input type="color" id="bgColor" class="color-swatch" value="#ffffff">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row2">
+      <div class="field">
+        <div class="field-label"><span>影の強さ</span><span class="val" id="shadowOpacityVal">35%</span></div>
+        <input type="range" id="shadowOpacity" min="0" max="80" step="1" value="35">
+      </div>
+      <div class="field">
+        <div class="field-label"><span>影のぼかし</span><span class="val" id="shadowBlurVal">40px</span></div>
+        <input type="range" id="shadowBlur" min="0" max="100" step="1" value="40">
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>影のオフセット（下方向）</span><span class="val" id="shadowOffsetVal">18px</span></div>
+      <input type="range" id="shadowOffset" min="0" max="60" step="1" value="18">
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn btn-secondary" id="resetBtn">デフォルトに戻す</button>
+
+    <div class="divider"></div>
+
+    <button class="btn btn-primary" id="downloadBtn" disabled>透過PNGをダウンロード（1024×1024）</button>
+    <div class="hint">背景は透明で書き出されます</div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
