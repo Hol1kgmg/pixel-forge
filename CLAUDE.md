@@ -1,16 +1,14 @@
 # Project Overview
-{プロジェクトの概要を記述 (例: Dotfiles management project for macOS using Nix and Home-Manager)}
+pixel-forge: 静的ページ完結型の画像加工・エクスポートツール群をまとめるWebアプリケーションリポジトリ。ブラウザ内（Canvas APIなど）で画像を加工し、そのままエクスポートできるアプリを用途ごとにディレクトリ単位で追加していく方針。
 
 # Setup and Basic Usage
 Setup instructions and basic usage are documented in [README.md](./README.md).
 
 # Directory Structure
-{※ディレクトリ構造のドキュメントが不要な場合はこのセクションごと削除}
-See [{DIRECTORY_STRUCTURE_FILE}.md](./{DIRECTORY_STRUCTURE_FILE}.md) for details.
+- `/index.html` — topページ（現状は `icon-generator/` へリダイレクトのみ）
+- `/icon-generator/` — macOS風アイコン生成ツール（`index.html` / `style.css` / `script.js`）
 
-# Troubleshooting
-{※トラブルシューティングのドキュメントが不要な場合はこのセクションごと削除}
-- Setup and daily usage issues: See [{TROUBLESHOOTING_FILE}.md](./{TROUBLESHOOTING_FILE}.md)
+新しい画像加工アプリを追加する際は、`icon-generator/` と同様にルート直下へ用途ごとのディレクトリを切り、`index.html` / `style.css` / `script.js` を配置する。
 
 # Work Rules
 1. Propose implementation plan
